@@ -1,0 +1,20 @@
+<ion-header-bar class="bar-stable">
+    <h1 class="title">Add Food for random</h1>
+    <button class="button ion-checkmark" ng-click="addName()" ng-show="name"></button>
+</ion-header-bar>
+<ion-content>
+    <div class="list list-inset">
+        <label class="item item-input">
+            <input type="text" placeholder="fried chicked" ng-model="$parent.name">
+        </label>
+    </div>
+    <ion-toggle ng-model="shouldShowDelete">
+        Need to delete?
+    </ion-toggle>
+    <ion-list show-delete="shouldShowDelete">
+        <ion-item collection-repeat="list in $parent.listname">
+            <ion-delete-button class="ion-minus-circled" ng-click="remove($index)"></ion-delete-button>
+            {{ list.name }}
+        </ion-item>
+    </ion-list>
+</ion-content>
